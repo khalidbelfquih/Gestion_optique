@@ -1,0 +1,245 @@
+CREATE TABLE IF NOT EXISTS `tbl_product`(
+`item_no`int(11) AUTO_INCREMENT NOT NULL,
+`no`int(11) NOT NULL,
+`date_issue` date not null DEFAULT '0000-00-00',
+`product_no` int(20) not null,
+`description` varchar(250) not null,
+`qty` int(20) not null,
+`unit_of_issue` varchar(250) not null,
+`unit_price` decimal(20,2) not null,
+`total_cost` decimal(20,2) not null,
+`mode_of_procure` varchar(250) not null,
+`qty1` int(20) not null,
+`amnt1` decimal(20,2) not null,
+`qty2` int(20) not null,
+`amnt2` decimal(20,2) not null,
+`qty3` int(20) not null,
+`amnt3` decimal(20,2) not null,
+`qty4` int(20) not null,
+`amnt4` decimal(20,2) not null,
+`jan` int(20) not null,
+`feb` int(20) not null,
+`mar` int(20) not null,
+`apr` int(20) not null,
+`may` int(20) not null,
+`jun` int(20) not null,
+`jul` int(20) not null,
+`aug` int(20) not null,
+`sep` int(20) not null,
+`oct` int(20) not null,
+`nov` int(20) not null,
+`dece` int(20) not null,
+`category` varchar(250) not null,
+`remarks` varchar(250) not null,
+`name_of_lgu` varchar(250) not null,
+`ctrl_no` varchar(250) not null,
+`department` varchar(250) not null,
+`plan_amnt` decimal(20,2) not null,
+`net` decimal(20,2) not null,
+`source_of_fund` varchar(250) not null,
+`year` int(20) not null, 
+PRIMARY KEY(`item_no`)
+);
+
+CREATE TABLE IF NOT EXISTS `app`(
+`item_no`int(11) AUTO_INCREMENT NOT NULL,
+`no`int(11) NOT NULL,
+`PO_no`varchar(250) NOT NULL,
+`date_issue` date not null DEFAULT '0000-00-00',
+`product_no` int(20) not null,
+`description` varchar(250) not null,
+`qty` int(20) not null,
+`unit_of_issue` varchar(250) not null,
+`unit_price` decimal(20,2) not null,
+`total_cost` decimal(20,2) not null,
+`mode_of_procure` varchar(250) not null,
+`qty1` int(20) not null,
+`amnt1` decimal(20,2) not null,
+`qty2` int(20) not null,
+`amnt2` decimal(20,2) not null,
+`qty3` int(20) not null,
+`amnt3` decimal(20,2) not null,
+`qty4` int(20) not null,
+`amnt4` decimal(20,2) not null,
+`category` varchar(250) not null,
+`remarks` varchar(250) not null,
+`name_of_lgu` varchar(250) not null,
+`ctrl_no` varchar(250) not null,
+`department` varchar(250) not null,
+`plan_amnt` decimal(20,2) not null,
+`net` decimal(20,2) not null,
+`source_of_fund` varchar(250) not null,
+`year` int(20) not null, 
+PRIMARY KEY(`item_no`)
+);
+
+CREATE TABLE IF NOT EXISTS `department`(
+`ID`int(11) AUTO_INCREMENT NOT NULL,
+`Department`varchar(250) NOT NULL,
+PRIMARY KEY(`ID`)
+);
+
+CREATE TABLE IF NOT EXISTS `tbl_category`(
+`ID`int(11) AUTO_INCREMENT NOT NULL,
+`category`varchar(250) NOT NULL,
+PRIMARY KEY(`ID`)
+);
+
+CREATE TABLE IF NOT EXISTS `Logs`
+(
+`log_id` int(11) NOT NULL AUTO_INCREMENT,
+`Date` varchar(50) NOT NULL,
+`FullName` varchar(100) NOT NULL,
+`Login` varchar(20) NOT NULL,
+`Logout` varchar(20) NOT NULL,
+PRIMARY KEY (`log_id`)
+)ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+
+CREATE TABLE IF NOT EXISTS `sub_department`(
+`ID`int(11) AUTO_INCREMENT NOT NULL,
+`Department`varchar(250) NOT NULL,
+PRIMARY KEY(`ID`)
+);
+
+CREATE TABLE IF NOT EXISTS `register`(
+`id`int(11) AUTO_INCREMENT NOT NULL,
+`fullname`varchar(250) NOT NULL,
+`department` varchar(250) not null,
+`usertype` varchar(250) not null,
+`username` varchar(250) not null,
+`password` varchar(250) not null,
+`confirm_p` varchar(250) not null,
+PRIMARY KEY(`id`)
+);
+
+insert into register(fullname,department,usertype,username,password)values('Administrator','GSO','Administrator','admin','admin');
+
+CREATE TABLE IF NOT EXISTS `tbl_quarter`(
+`id`int(11) AUTO_INCREMENT NOT NULL,
+`quarter`varchar(250) NOT NULL,
+`year`int(20) NOT NULL,
+`number` decimal(20,2) not null,
+PRIMARY KEY(`id`)
+);
+
+insert into tbl_quarter(quarter,number,year)values('1st Quarter',0,0);
+insert into tbl_quarter(quarter,number,year)values('2nd Quarter',0,0);
+insert into tbl_quarter(quarter,number,year)values('3rd Quarter',0,0);
+insert into tbl_quarter(quarter,number,year)values('4th Quarter',0,0);
+
+
+CREATE TABLE IF NOT EXISTS `ppmp`(
+`item_no`int(11) AUTO_INCREMENT NOT NULL,
+`no`int(11) NOT NULL,
+`date_issue` date not null DEFAULT '0000-00-00',
+`product_no` int(20) not null,
+`description` varchar(250) not null,
+`qty` int(20) not null,
+`unit_of_issue` varchar(250) not null,
+`unit_price` decimal(20,2) not null,
+`total_cost` decimal(20,2) not null,
+`jan` int(20) not null,
+`feb` int(20) not null,
+`mar` int(20) not null,
+`apr` int(20) not null,
+`may` int(20) not null,
+`jun` int(20) not null,
+`jul` int(20) not null,
+`aug` int(20) not null,
+`sep` int(20) not null,
+`oct` int(20) not null,
+`nov` int(20) not null,
+`dece` int(20) not null,
+`category` varchar(250) not null,
+`remarks` varchar(250) not null,
+`department` varchar(250) not null,
+`year` int(20) not null, 
+PRIMARY KEY(`item_no`)
+);
+
+CREATE TABLE IF NOT EXISTS `tbl_pr`(
+`item_no`int(11) AUTO_INCREMENT NOT NULL,
+`no`int(11) NOT NULL,
+`PR_no` varchar(250) NOT NULL,
+`date_PR` date not null DEFAULT '0000-00-00',
+`date_issue` date not null DEFAULT '0000-00-00',
+`product_no` int(20) not null,
+`description` varchar(250) not null,
+`qty` int(20) not null,
+`unit_of_issue` varchar(250) not null,
+`unit_price` decimal(20,2) not null,
+`total_cost` decimal(20,2) not null,
+`mode_of_procure` varchar(250) not null,
+`qty1` int(20) not null,
+`amnt1` decimal(20,2) not null,
+`qty2` int(20) not null,
+`amnt2` decimal(20,2) not null,
+`qty3` int(20) not null,
+`amnt3` decimal(20,2) not null,
+`qty4` int(20) not null,
+`amnt4` decimal(20,2) not null,
+`category` varchar(250) not null,
+`remarks` varchar(250) not null,
+`name_of_lgu` varchar(250) not null,
+`ctrl_no` varchar(250) not null,
+`department` varchar(250) not null,
+`plan_amnt` decimal(20,2) not null,
+`net` decimal(20,2) not null,
+`source_of_fund` varchar(250) not null,
+`year` int(20) not null, 
+`bind_tb` varchar(250) not null,
+PRIMARY KEY(`item_no`)
+);
+
+CREATE TABLE IF NOT EXISTS `tbl_po`(
+`item_no`int(11) AUTO_INCREMENT NOT NULL,
+`no`int(11) NOT NULL,
+`PO_no`varchar(250) NOT NULL,
+`PO_date` date not null DEFAULT '0000-00-00',
+`date_issue` date not null DEFAULT '0000-00-00',
+`product_no` int(20) not null,
+`description` varchar(250) not null,
+`qty` int(20) not null,
+`unit_of_issue` varchar(250) not null,
+`unit_price` decimal(20,2) not null,
+`total_cost` decimal(20,2) not null,
+`mode_of_procure` varchar(250) not null,
+`remarks` varchar(250) not null,
+`tags` varchar(250) not null,
+`category` varchar(250) not null,
+`supplier` varchar(250) not null,
+`address` varchar(250) not null,
+`tin` varchar(250) not null,
+`fund` varchar(250) not null,
+`place_deliver` varchar(250) not null,
+`date_deliver` date not null DEFAULT '0000-00-00',
+`deliver_term` varchar(250) not null,
+`payment_term` varchar(250) not null,
+`name_of_lgu` varchar(250) not null,
+`ctrl_no` varchar(250) not null,
+`department` varchar(250) not null,
+`plan_amnt` decimal(20,2) not null,
+`net` decimal(20,2) not null,
+`source_of_fund` varchar(250) not null,
+`year` int(20) not null, 
+`end_user` varchar(250) not null,
+PRIMARY KEY(`item_no`)
+);
+
+
+
+CREATE TABLE IF NOT EXISTS `tbl_remarks`(
+`item_no`int(11) AUTO_INCREMENT NOT NULL,
+`no`int(11) NOT NULL,
+`date_issue` date not null DEFAULT '0000-00-00',
+`product_no` int(20) not null,
+`description` varchar(250) not null,
+`qty` int(20) not null,
+`unit_of_issue` varchar(250) not null,
+`remarks` varchar(250) not null,
+`category` varchar(250) not null,
+`department` varchar(250) not null,
+`year` int(20) not null, 
+PRIMARY KEY(`item_no`)
+);
